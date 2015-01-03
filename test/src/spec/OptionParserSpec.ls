@@ -11,7 +11,7 @@ package
         {
             var it:Thing = Spec.describe('OptionParser');
 
-            var argProvider1 = new ArgProviderMock(['ignore-exe', 'ignore-bin', '--option-one', 'v1', 'v2', 'v3', '-b', '-c', 'false', '--option-four']);
+            var argProvider1 = new ArgProviderMock(['ignore-exe', 'ignore-bin', '--option-one', 'v1', 'v2', 'v3', '-b', '-c', 'value for c', '--option-four']);
             var argProvider2 = new ArgProviderMock(['ignore-exe', 'ignore-bin', 'not-an-option']);
 
             var options:OptionParser = new OptionParser(argProvider1);
@@ -66,7 +66,7 @@ package
             });
 
             it.should('provide a summary string of all options parsed', function() {
-                it.expects(options.toString()).toEqual('-b, --? (true)\n-?, --option-one (v1,v2,v3)\n-c, --? (false)\n-?, --option-four (true)\n');
+                it.expects(options.toString()).toEqual('-b (true)\n--option-one (v1,v2,v3)\n-c (value for c)\n--option-four (true)\n');
             });
         }
     }

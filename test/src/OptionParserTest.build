@@ -2,7 +2,7 @@
     "name": "OptionParserTest",
     "version": "1.0",
     "executable": true,
-    "outputDir": "./bin",
+    "outputDir": "bin",
     "references": [
         "System",
         "Spec",

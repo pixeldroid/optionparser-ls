@@ -57,9 +57,8 @@ package pixeldroid.cli
         public function toString():String
         {
             var s:String = '';
-            s += '-' +shortName;
-            s += ', ';
-            s += '--' +longName;
+            if (shortName != '?') s += '-' +shortName;
+            if (longName != '?') s += '--' +longName;
             s += ' (' +value.join(',') +')';
 
             return s;
