@@ -1,0 +1,21 @@
+{
+    "name": "OptionParserTest",
+    "version": "1.0",
+    "executable": true,
+    "outputDir": "bin",
+    "references": [
+        "System",
+        "Spec",
+        "OptionParser"
+    ],
+    "modules": [
+        {
+            "name": "OptionParserTest",
+            "version": "1.0",
+            "sourcePath": [
+                "app",
+                "spec"
+            ]
+        }
+    ]
+}
