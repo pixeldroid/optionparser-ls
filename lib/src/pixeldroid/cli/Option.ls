@@ -11,12 +11,11 @@ package pixeldroid.cli
         private var _value:Vector.<String>;
 
 
-        public function Option(shortName:String, longName:String, defaultValue:Vector.<String> = ['true'])
+        public function Option(shortName:String, longName:String, defaultValue:Vector.<String> = null)
         {
             _shortName = shortName;
             _longName = longName;
             _defaultValue = defaultValue;
-            _value = defaultValue;
         }
 
         public function get shortName():String
@@ -46,7 +45,8 @@ package pixeldroid.cli
 
         public function get value():Vector.<String>
         {
-            return _value;
+            if (_value) return _value;
+            return _defaultValue;
         }
 
         public function set value(v:Vector.<String>):void

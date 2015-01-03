@@ -132,7 +132,8 @@ package pixeldroid.cli
                 arg = getCommandLineArg(index);
                 value.push(arg);
             }
-            if (value.length > 0) option.value = value;
+            if (value.length == 0) value.push('true'); // it's a flag
+            option.value = value;
 
             addOption(key, option);
 
