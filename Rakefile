@@ -6,7 +6,8 @@ begin
   load(File.join(ENV['HOME'], '.loom', 'tasks', 'loomlib.rake'))
 rescue LoadError
   abort([
-    'please install loomtasks before running this Rakefile:',
-    'https://github.com/pixeldroid/loomtasks',
+    'error: missing loomlib.rake',
+    '  please install loomtasks before running this Rakefile:',
+    '  https://github.com/pixeldroid/loomtasks',
   ].join("\n"))
 end
