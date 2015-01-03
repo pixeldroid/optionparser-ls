@@ -23,12 +23,13 @@ $ rm ~/.loom/sdks/sprint33/libs/OptionParser.loomlib
 ## usage
 
 0. declare a reference to the OptionParser loomlib in your `.build` file:
-    * ```
-      "references": [
-          "System",
-          "OptionParser"
-      ],
-      ```
+    * 
+    ```
+    "references": [
+        "System",
+        "OptionParser"
+    ],
+    ```
 0. import `pixeldroid.cli.OptionParser`
 0. instantiate a new `pixeldroid.cli.OptionParser` and call the `parse()` method on it
 0. retrieve `pixeldroid.cli.Option` items via the `getOption()` method of OptionParser
@@ -48,7 +49,7 @@ $ ~/.loom/sdks/sprint33/tools/loomexec bin/OptionParserTest.loom --help
 
 ## working from source
 
-first install [loomtasks][loomtasks]
+> first install [loomtasks][loomtasks]
 
 ### compiling
 
