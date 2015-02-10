@@ -19,7 +19,7 @@ To uninstall, simply delete the file:
 ## usage
 
 0. declare a reference to the OptionParser loomlib in your `.build` file:
-    * 
+    *
     ```
     "references": [
         "System",
@@ -44,6 +44,11 @@ you can compile and run the demo from the command line:
     $ ~/.loom/sdks/sprint33/tools/loomexec bin/OptionParserTest.loom --help
     $ ~/.loom/sdks/sprint33/tools/loomexec bin/OptionParserTest.loom --optionA arg1 arg2 -b
 
+or use Rake:
+
+    $ rake demo:cli['--optionA arg1 arg2 -b']
+
+
 ## working from source
 
 > first install [loomtasks][loomtasks]
@@ -56,7 +61,7 @@ this will build the OptionParser library and install it in the currently configu
 
 ### running tests
 
-    $ rake test:run
+    $ rake test
 
 this will build the OptionParser library, install it in the currently configured sdk, build the test app, and run the test app.
 
