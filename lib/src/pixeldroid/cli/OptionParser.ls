@@ -20,9 +20,8 @@ package pixeldroid.cli
             this.argProvider = argProvider;
 
             var type:Type = (argProvider == null) ? CommandLine.getType() : argProvider.getType();
-            getArgMethod = type.getMethodInfo('getArg');
-
-            numArgs = type.getMethodInfo('getArgCount').invokeSingle(argProvider, null) as Number;
+            getArgMethod = type.getMethodInfoByName('getArg');
+            numArgs = type.getMethodInfoByName('getArgCount').invokeSingle(argProvider, null) as Number;
         }
 
 
