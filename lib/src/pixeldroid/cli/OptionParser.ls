@@ -25,6 +25,8 @@ package pixeldroid.cli
         }
 
 
+        public function get argCount():Number { return numArgs; }
+
         public function hasOption(shortName:String, longName:String=''):Boolean
         {
             if (options[shortName]) return true;
@@ -43,9 +45,7 @@ package pixeldroid.cli
         {
             var arg:String;
 
-            // arg 0 : path to host executable (i.e. '~/.loom/sdks/<sdk>/tools/loomexec')
-            // arg 1 : path to binary being executed (i.e. 'bin/Something.loom')
-            for (var i = 2; i < numArgs; i++)
+            for (var i = 0; i < numArgs; i++)
             {
                 arg = getArg(i);
 
