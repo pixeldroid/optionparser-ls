@@ -8,18 +8,18 @@ a simple option parser for Loom commandline apps
 
 Download the library into its matching sdk folder:
 
-    $ curl -L -o ~/.loom/sdks/sprint33/libs/OptionParser.loomlib \
-        https://github.com/pixeldroid/optionparser-ls/releases/download/v1.0.0/OptionParser-sprint33.loomlib
+    $ curl -L -o ~/.loom/sdks/sprint34/libs/OptionParser.loomlib \
+        https://github.com/pixeldroid/optionparser-ls/releases/download/v2.0.0/OptionParser-sprint34.loomlib
 
 To uninstall, simply delete the file:
 
-    $ rm ~/.loom/sdks/sprint33/libs/OptionParser.loomlib
+    $ rm ~/.loom/sdks/sprint34/libs/OptionParser.loomlib
 
 
 ## usage
 
 0. declare a reference to the OptionParser loomlib in your `.build` file:
-    * 
+    *
     ```
     "references": [
         "System",
@@ -40,9 +40,15 @@ see an example of using the OptionParser here:
 you can compile and run the demo from the command line:
 
     $ cd test
-    $ ~/.loom/sdks/sprint33/tools/lsc OptionParserTest.build
-    $ ~/.loom/sdks/sprint33/tools/loomexec bin/OptionParserTest.loom --help
-    $ ~/.loom/sdks/sprint33/tools/loomexec bin/OptionParserTest.loom --optionA arg1 arg2 -b
+    $ ~/.loom/sdks/sprint34/bin/osx-x64/tools/lsc OptionParserDemo.build
+    $ mv bin/OptionParserDemo.loom bin/Main.loom
+    $ ~/.loom/sdks/sprint34/bin/osx-x64/tools/loomexec // --help
+    $ ~/.loom/sdks/sprint34/bin/osx-x64/tools/loomexec // --optionA arg1 arg2 -b
+
+or use Rake:
+
+    $ rake demo:cli['--optionA arg1 arg2 -b']
+
 
 ## working from source
 
@@ -56,7 +62,7 @@ this will build the OptionParser library and install it in the currently configu
 
 ### running tests
 
-    $ rake test:run
+    $ rake test
 
 this will build the OptionParser library, install it in the currently configured sdk, build the test app, and run the test app.
 

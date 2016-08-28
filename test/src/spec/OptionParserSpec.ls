@@ -11,15 +11,15 @@ package
         {
             var it:Thing = Spec.describe('OptionParser');
 
-            var argProvider1 = new ArgProviderMock(['ignore-exe', 'ignore-bin', '--option-one', 'v1', 'v2', 'v3', '-b', '-c', 'value for c', '--option-four']);
-            var argProvider2 = new ArgProviderMock(['ignore-exe', 'ignore-bin', 'not-an-option']);
+            var args:Vector.<String> = ['--option-one', 'v1', 'v2', 'v3', '-b', '-c', 'value for c', '--option-four'];
+            var argProvider1 = new ArgProviderMock(args);
+            var argProvider2 = new ArgProviderMock(['not-an-option']);
 
             var options:OptionParser = new OptionParser(argProvider1);
             options.parse();
 
-            it.should('ignore the first two arguments', function() {
-                it.expects(options.hasOption('ignore-exe')).toBeFalsey();
-                it.expects(options.hasOption('ignore-bin')).toBeFalsey();
+            it.should('find all the valid options, arguments, and flags', function() {
+                it.expects(options.argCount).toEqual(args.length);
             });
 
             it.should('ignore leading options that do not start with a hyphen', function() {
@@ -36,6 +36,7 @@ package
 
             it.should('parse long-form options', function() {
                 it.expects(options.getOption('option-one').hasValue).toBeTruthy();
+                it.expects(options.getOption('option-four').hasValue).toBeTruthy();
             });
 
             it.should('assume options with no values are flags set true', function() {

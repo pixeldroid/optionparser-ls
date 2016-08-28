@@ -6,7 +6,7 @@ package pixeldroid.cli
 
     public class OptionParser
     {
-        public static const version:String = '1.0.0';
+        public static const version:String = '2.0.0';
 
         private var options:Dictionary.<String, Option>;
         private var numArgs:Number;
@@ -20,11 +20,12 @@ package pixeldroid.cli
             this.argProvider = argProvider;
 
             var type:Type = (argProvider == null) ? CommandLine.getType() : argProvider.getType();
-            getArgMethod = type.getMethodInfo('getArg');
-
-            numArgs = type.getMethodInfo('getArgCount').invokeSingle(argProvider, null) as Number;
+            getArgMethod = type.getMethodInfoByName('getArg');
+            numArgs = type.getMethodInfoByName('getArgCount').invokeSingle(argProvider, null) as Number;
         }
 
+
+        public function get argCount():Number { return numArgs; }
 
         public function hasOption(shortName:String, longName:String=''):Boolean
         {
@@ -44,9 +45,7 @@ package pixeldroid.cli
         {
             var arg:String;
 
-            // arg 0 : path to host executable (i.e. '~/.loom/sdks/<sdk>/tools/loomexec')
-            // arg 1 : path to binary being executed (i.e. 'bin/Something.loom')
-            for (var i = 2; i < numArgs; i++)
+            for (var i = 0; i < numArgs; i++)
             {
                 arg = getArg(i);
 

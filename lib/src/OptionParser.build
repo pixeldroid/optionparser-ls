@@ -1,17 +1,17 @@
 {
-    "name": "OptionParser",
-    "version": "1.0",
-    "outputDir": "./build",
-    "references": [
-        "System"
-    ],
-    "modules": [
-        {
-            "name": "OptionParser",
-            "version": "1.0",
-            "sourcePath": [
-                "."
-            ]
-        }
-    ]
+  "name": "OptionParser",
+  "version": "2.0.0",
+  "outputDir": "./build",
+  "references": [
+    "System"
+  ],
+  "modules": [
+    {
+      "name": "OptionParser",
+      "version": "2.0.0",
+      "sourcePath": [
+        "."
+      ]
+    }
+  ]
 }
