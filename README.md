@@ -40,9 +40,10 @@ see an example of using the OptionParser here:
 you can compile and run the demo from the command line:
 
     $ cd test
-    $ ~/.loom/sdks/sprint33/tools/lsc OptionParserTest.build
-    $ ~/.loom/sdks/sprint33/tools/loomexec bin/OptionParserTest.loom --help
-    $ ~/.loom/sdks/sprint33/tools/loomexec bin/OptionParserTest.loom --optionA arg1 arg2 -b
+    $ ~/.loom/sdks/sprint33/bin/osx-x64/tools/lsc OptionParserDemo.build
+    $ mv bin/OptionParserDemo.loom bin/Main.loom
+    $ ~/.loom/sdks/sprint33/bin/osx-x64/tools/loomexec // --help
+    $ ~/.loom/sdks/sprint33/bin/osx-x64/tools/loomexec // --optionA arg1 arg2 -b
 
 or use Rake:
 
