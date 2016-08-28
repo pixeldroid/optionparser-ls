@@ -6,7 +6,7 @@ package pixeldroid.cli
 
     public class OptionParser
     {
-        public static const version:String = '1.0.1';
+        public static const version:String = '2.0.0';
 
         private var options:Dictionary.<String, Option>;
         private var numArgs:Number;
