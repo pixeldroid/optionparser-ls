@@ -18,6 +18,10 @@ package
             var options:OptionParser = new OptionParser(argProvider1);
             options.parse();
 
+            it.should('be versioned', function() {
+                it.expects(OptionParser.version).toPatternMatch('(%d+).(%d+).(%d+)', 3);
+            });
+
             it.should('find all the valid options, arguments, and flags', function() {
                 it.expects(options.argCount).toEqual(args.length);
             });
