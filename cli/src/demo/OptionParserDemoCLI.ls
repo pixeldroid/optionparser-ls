@@ -3,7 +3,7 @@ package
     import system.application.ConsoleApplication;
     import pixeldroid.cli.OptionParser;
 
-    public class OptionParserDemo extends ConsoleApplication
+    public class OptionParserDemoCLI extends ConsoleApplication
     {
         override public function run():void
         {

@@ -52,7 +52,7 @@ you can compile and run the demo from the command line:
 
 or use Rake:
 
-    $ rake demo:cli['--optionA arg1 arg2 -b']
+    $ rake cli['--optionA arg1 arg2 -b']
 
 
 ## building

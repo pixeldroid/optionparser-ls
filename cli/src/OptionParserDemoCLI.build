@@ -1,0 +1,19 @@
+{
+  "name": "OptionParserDemoCLI",
+  "version": "1.0",
+  "outputDir": "bin",
+  "references": [
+    "System",
+    "OptionParser"
+  ],
+  "modules": [
+    {
+      "name": "OptionParserDemoCLI",
+      "version": "1.0",
+      "sourcePath": [
+        "demo"
+      ]
+    }
+  ],
+  "executable": true
+}
