@@ -1,7 +1,12 @@
 optionparser-ls
 ===============
 
-a simple option parser for Loom commandline apps
+a simple option parser for [Loom][loom-sdk] commandline apps
+
+- [installation](#installation)
+- [usage](#usage)
+- [building](#building)
+- [contributing](#contributing)
 
 
 ## installation
@@ -9,7 +14,7 @@ a simple option parser for Loom commandline apps
 Download the library into its matching sdk folder:
 
     $ curl -L -o ~/.loom/sdks/sprint34/libs/OptionParser.loomlib \
-        https://github.com/pixeldroid/optionparser-ls/releases/download/v2.0.0/OptionParser-sprint34.loomlib
+        https://github.com/pixeldroid/optionparser-ls/releases/download/v2.0.1/OptionParser-sprint34.loomlib
 
 To uninstall, simply delete the file:
 
@@ -20,7 +25,7 @@ To uninstall, simply delete the file:
 
 0. declare a reference to the OptionParser loomlib in your `.build` file:
     *
-    ```
+    ```ls
     "references": [
         "System",
         "OptionParser"
@@ -47,14 +52,14 @@ you can compile and run the demo from the command line:
 
 or use Rake:
 
-    $ rake demo:cli['--optionA arg1 arg2 -b']
+    $ rake cli['--optionA arg1 arg2 -b']
 
 
-## working from source
+## building
 
-> first install [loomtasks][loomtasks]
+first, install [loomtasks][loomtasks] and the [spec-ls library][spec-ls]
 
-### compiling
+### compiling from source
 
     $ rake lib:install
 
@@ -72,6 +77,8 @@ this will build the OptionParser library, install it in the currently configured
 Pull requests are welcome!
 
 
-[loomtasks]: https://github.com/pixeldroid/loomtasks "loomtasks"
+[loom-sdk]: https://github.com/LoomSDK/LoomSDK "a native mobile app and game framework"
+[loomtasks]: https://github.com/pixeldroid/loomtasks "Rake tasks for working with loomlibs"
 [OptionParserDemo.build]: ./test/src/OptionParserDemo.build "build file for the demo"
 [OptionParserDemo.ls]: ./test/src/OptionParserDemo.ls "source file for the demo"
+[spec-ls]: https://github.com/pixeldroid/spec-ls "a simple spec framework for Loom"
