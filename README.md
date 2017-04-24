@@ -24,7 +24,6 @@ To uninstall, simply delete the file:
 ## usage
 
 0. declare a reference to the OptionParser loomlib in your `.build` file:
-    *
     ```ls
     "references": [
         "System",
@@ -39,14 +38,14 @@ To uninstall, simply delete the file:
 
 see an example of using the OptionParser here:
 
-* [OptionParserDemo.build][OptionParserDemo.build]
-* [OptionParserDemo.ls][OptionParserDemo.ls]
+* [OptionParserDemoCLI.build][OptionParserDemoCLI.build]
+* [OptionParserDemoCLI.ls][OptionParserDemoCLI.ls]
 
 you can compile and run the demo from the command line:
 
     $ cd test
-    $ ~/.loom/sdks/sprint34/bin/osx-x64/tools/lsc OptionParserDemo.build
-    $ mv bin/OptionParserDemo.loom bin/Main.loom
+    $ ~/.loom/sdks/sprint34/bin/osx-x64/tools/lsc OptionParserDemoCLI.build
+    $ mv bin/OptionParserDemoCLI.loom bin/Main.loom
     $ ~/.loom/sdks/sprint34/bin/osx-x64/tools/loomexec // --help
     $ ~/.loom/sdks/sprint34/bin/osx-x64/tools/loomexec // --optionA arg1 arg2 -b
 
@@ -76,9 +75,8 @@ this will build the OptionParser library, install it in the currently configured
 
 Pull requests are welcome!
 
-
 [loom-sdk]: https://github.com/LoomSDK/LoomSDK "a native mobile app and game framework"
 [loomtasks]: https://github.com/pixeldroid/loomtasks "Rake tasks for working with loomlibs"
-[OptionParserDemo.build]: ./test/src/OptionParserDemo.build "build file for the demo"
-[OptionParserDemo.ls]: ./test/src/OptionParserDemo.ls "source file for the demo"
+[OptionParserDemoCLI.build]: ./cli/src/OptionParserDemoCLI.build "build file for the demo"
+[OptionParserDemoCLI.ls]: ./cli/src/demo/OptionParserDemoCLI.ls "source file for the demo"
 [spec-ls]: https://github.com/pixeldroid/spec-ls "a simple spec framework for Loom"
