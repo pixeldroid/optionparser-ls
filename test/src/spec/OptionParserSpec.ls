@@ -29,6 +29,8 @@ package
             it.should('parse the option value as a tuple when just a single arg is provided', create_tuples_one_arg);
             it.should('parse the option value as a tuple when no args are provided', create_tuples_no_args);
             it.should('return a default option when a user provided one cannot be retrieved', return_defaults);
+            it.should('give access to the first of a multi-value option', access_first_value);
+            it.should('give access to the last of a multi-value option', access_last_value);
             it.should('provide a summary string of all options parsed', provide_summary_string);
         }
 
@@ -117,6 +119,22 @@ package
             options.parse();
 
             it.expects(options.getOption('x', '', xDefault).value).toEqual(xDefault);
+        }
+
+        private static function access_first_value():void
+        {
+            var options:OptionParser = new OptionParser(argProvider1);
+            options.parse();
+
+            it.expects(options.getOption('option-one').firstValue).toEqual('v1');
+        }
+
+        private static function access_last_value():void
+        {
+            var options:OptionParser = new OptionParser(argProvider1);
+            options.parse();
+
+            it.expects(options.getOption('option-one').lastValue).toEqual('v3');
         }
 
         private static function provide_summary_string():void
