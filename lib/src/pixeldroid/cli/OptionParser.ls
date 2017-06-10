@@ -67,6 +67,17 @@ package pixeldroid.cli
             return s;
         }
 
+        public function toDictionary():Dictionary.<String,Vector.<String>>
+        {
+            var d:Dictionary.<String,Vector.<String>> = {};
+            for (var key:String in options)
+            {
+                d[key] = options[key].value;
+            }
+
+            return d;
+        }
+
 
         private function getDefaultOption(shortName:String='', longName:String='', defaultValue:Vector.<String> = ['true']):Option
         {

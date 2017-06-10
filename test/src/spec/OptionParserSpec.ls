@@ -31,6 +31,7 @@ package
             it.should('give access to the first of a multi-value option', access_first_value);
             it.should('give access to the last of a multi-value option', access_last_value);
             it.should('provide a summary string of all options parsed', provide_summary_string);
+            it.should('provide the parsed options in dictionary form', provide_dictionary);
         }
 
         private static function be_versioned():void
@@ -142,6 +143,24 @@ package
             options.parse();
 
             it.expects(options.toString()).toEqual('-b (true)\n--option-one (v1,v2,v3)\n-c (value for c)\n--option-four (true)\n');
+        }
+
+        private static function provide_dictionary():void
+        {
+            var options:OptionParser = new OptionParser(argProvider1);
+            options.parse();
+
+            var keys:Vector.<String> = [];
+            var vals:Vector.<Vector.<String>> = [];
+            var d:Dictionary.<String,Vector.<String>> = options.toDictionary();
+            for (var k:String in d)
+            {
+                keys.push(k);
+                vals.push(d[k]);
+            }
+
+            it.expects(keys.toString()).toEqual('b,option-one,c,option-four');
+            it.expects(vals.toString()).toEqual('true,v1,v2,v3,value for c,true');
         }
     }
 
