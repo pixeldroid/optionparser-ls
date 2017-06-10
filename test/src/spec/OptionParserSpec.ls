@@ -8,16 +8,15 @@ package
 
     public static class OptionParserSpec
     {
-        private static const it:Thing = Spec.describe('OptionParser');
+        private static var it:Thing;
         private static const args:Vector.<String> = ['--option-one', 'v1', 'v2', 'v3', '-b', '-c', 'value for c', '--option-four'];
         private static const argProvider1 = new ArgProviderMock(args);
         private static const argProvider2 = new ArgProviderMock(['not-an-option']);
 
 
-        public static function describe():void
+        public static function specify(specifier:Spec):void
         {
-            var options:OptionParser = new OptionParser(argProvider1);
-            options.parse();
+            it = specifier.describe('OptionParser');
 
             it.should('be versioned', be_versioned);
             it.should('find all the valid options, arguments, and flags', find_valid_input);
