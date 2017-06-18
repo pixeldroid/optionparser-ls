@@ -142,7 +142,7 @@ package
             var options:OptionParser = new OptionParser(argProvider1);
             options.parse();
 
-            it.expects(options.toString()).toEqual('-b (true)\n--option-one (v1,v2,v3)\n-c (value for c)\n--option-four (true)\n');
+            it.expects(options.toString()).toEqual('-b (true)\n--option-one (v1,v2,v3)\n-c (value for c)\n--option-four (true)');
         }
 
         private static function provide_dictionary():void

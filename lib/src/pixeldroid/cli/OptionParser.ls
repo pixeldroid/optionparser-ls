@@ -58,13 +58,12 @@ package pixeldroid.cli
 
         public function toString():String
         {
-            var s:String = '';
-            for (var key:String in options)
-            {
-                s += options[key].toString() +'\n';
-            }
+            var s:Vector.<String> = [];
 
-            return s;
+            for (var key:String in options)
+                s.push(options[key].toString());
+
+            return s.join('\n');
         }
 
         public function toDictionary():Dictionary.<String,Vector.<String>>
