@@ -45,13 +45,24 @@ package pixeldroid.cli
 
         public function get value():Vector.<String>
         {
-            if (_value) return _value;
-            return _defaultValue;
+            return _value ? _value : _defaultValue;
         }
 
         public function set value(v:Vector.<String>):void
         {
             _value = v;
+        }
+
+        public function get firstValue():String
+        {
+            var v:String = _value ? _value[0] : _defaultValue;
+            return v;
+        }
+
+        public function get lastValue():String
+        {
+            var v:String = _value ? _value[_value.length - 1] : _defaultValue;
+            return v;
         }
 
         public function toString():String

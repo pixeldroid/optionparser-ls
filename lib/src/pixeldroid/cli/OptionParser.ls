@@ -6,7 +6,7 @@ package pixeldroid.cli
 
     public class OptionParser
     {
-        public static const version:String = '2.0.1';
+        public static const version:String = '2.1.1';
 
         private var options:Dictionary.<String, Option>;
         private var numArgs:Number;
@@ -58,13 +58,23 @@ package pixeldroid.cli
 
         public function toString():String
         {
-            var s:String = '';
+            var s:Vector.<String> = [];
+
+            for (var key:String in options)
+                s.push(options[key].toString());
+
+            return s.join('\n');
+        }
+
+        public function toDictionary():Dictionary.<String,Vector.<String>>
+        {
+            var d:Dictionary.<String,Vector.<String>> = {};
             for (var key:String in options)
             {
-                s += options[key].toString() +'\n';
+                d[key] = options[key].value;
             }
 
-            return s;
+            return d;
         }
 
 

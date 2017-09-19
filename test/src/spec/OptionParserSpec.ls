@@ -8,16 +8,15 @@ package
 
     public static class OptionParserSpec
     {
-        private static const it:Thing = Spec.describe('OptionParser');
+        private static var it:Thing;
         private static const args:Vector.<String> = ['--option-one', 'v1', 'v2', 'v3', '-b', '-c', 'value for c', '--option-four'];
         private static const argProvider1 = new ArgProviderMock(args);
         private static const argProvider2 = new ArgProviderMock(['not-an-option']);
 
 
-        public static function describe():void
+        public static function specify(specifier:Spec):void
         {
-            var options:OptionParser = new OptionParser(argProvider1);
-            options.parse();
+            it = specifier.describe('OptionParser');
 
             it.should('be versioned', be_versioned);
             it.should('find all the valid options, arguments, and flags', find_valid_input);
@@ -29,7 +28,10 @@ package
             it.should('parse the option value as a tuple when just a single arg is provided', create_tuples_one_arg);
             it.should('parse the option value as a tuple when no args are provided', create_tuples_no_args);
             it.should('return a default option when a user provided one cannot be retrieved', return_defaults);
+            it.should('give access to the first of a multi-value option', access_first_value);
+            it.should('give access to the last of a multi-value option', access_last_value);
             it.should('provide a summary string of all options parsed', provide_summary_string);
+            it.should('provide the parsed options in dictionary form', provide_dictionary);
         }
 
         private static function be_versioned():void
@@ -119,12 +121,46 @@ package
             it.expects(options.getOption('x', '', xDefault).value).toEqual(xDefault);
         }
 
+        private static function access_first_value():void
+        {
+            var options:OptionParser = new OptionParser(argProvider1);
+            options.parse();
+
+            it.expects(options.getOption('option-one').firstValue).toEqual('v1');
+        }
+
+        private static function access_last_value():void
+        {
+            var options:OptionParser = new OptionParser(argProvider1);
+            options.parse();
+
+            it.expects(options.getOption('option-one').lastValue).toEqual('v3');
+        }
+
         private static function provide_summary_string():void
         {
             var options:OptionParser = new OptionParser(argProvider1);
             options.parse();
 
-            it.expects(options.toString()).toEqual('-b (true)\n--option-one (v1,v2,v3)\n-c (value for c)\n--option-four (true)\n');
+            it.expects(options.toString()).toEqual('-b (true)\n--option-one (v1,v2,v3)\n-c (value for c)\n--option-four (true)');
+        }
+
+        private static function provide_dictionary():void
+        {
+            var options:OptionParser = new OptionParser(argProvider1);
+            options.parse();
+
+            var keys:Vector.<String> = [];
+            var vals:Vector.<Vector.<String>> = [];
+            var d:Dictionary.<String,Vector.<String>> = options.toDictionary();
+            for (var k:String in d)
+            {
+                keys.push(k);
+                vals.push(d[k]);
+            }
+
+            it.expects(keys.toString()).toEqual('b,option-one,c,option-four');
+            it.expects(vals.toString()).toEqual('true,v1,v2,v3,value for c,true');
         }
     }
 
