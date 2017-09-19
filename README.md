@@ -14,7 +14,7 @@ a simple option parser for [Loom][loom-sdk] commandline apps
 Download the library into its matching sdk folder:
 
     $ curl -L -o ~/.loom/sdks/sprint34/libs/OptionParser.loomlib \
-        https://github.com/pixeldroid/optionparser-ls/releases/download/v2.1.0/OptionParser-sprint34.loomlib
+        https://github.com/pixeldroid/optionparser-ls/releases/download/v2.1.1/OptionParser-sprint34.loomlib
 
 To uninstall, simply delete the file:
 
